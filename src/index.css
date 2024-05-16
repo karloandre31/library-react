@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ficha-container{
+    position: relative; /* Asegura un contexto de posición para elementos hijos */
+  }
+  
+  .info-container {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 55%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra exactamente */
+    /* background-color: white; */
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 400px; /* Ancho máximo del mensaje */
+  }
+  
+  .image-container {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Altura máxima de la imagen */
+  }
