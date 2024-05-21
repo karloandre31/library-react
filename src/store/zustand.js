@@ -8,20 +8,28 @@ export const useFilterStore = create((set) => ({
 }));
 
 //filtrar por generos
-  export const useFilterGenreStore = create((set) => ({
-    genre: "",
-    setGenre: (genre) => set({ genre }),
-  }));
-
-
+export const useFilterGenreStore = create((set) => ({
+  genre: "",
+  setGenre: (genre) => set({ genre }),
+}));
 
 //agregar y eliminar de la lista de libros
 export const useReadingBookStore = create(
   persist(
     (set) => ({
       books: [],
-      addBook: (book) => {
-        set((state) => ({ books: [...state.books, book] }));
+      addBook: (newBook) => {
+        set((state) => {
+          // Comprobamos si el libro ya está en el array
+          const bookExists = state.books.some(
+            (book) => book.title === newBook.title
+          );
+          if (!bookExists) {
+            return { books: [...state.books, newBook] };
+          } else {
+            return state;
+          }
+        });
       },
       deleteBook: (bookTitle) => {
         set((state) => ({
@@ -35,18 +43,3 @@ export const useReadingBookStore = create(
     }
   )
 );
-
-export const useEnableStore = create(
-  persist(
-    (set) => ({
-      enable: false,
-      setEnable: (bool) => set({ enable: bool }),
-    }),
-    {
-      name: "enable",
-      storage: createJSONStorage(() => localStorage),
-    }
-  ) 
-);
-
-

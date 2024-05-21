@@ -6,14 +6,13 @@ import Container from "react-bootstrap/Container";
 import { Button, Col, Row } from "react-bootstrap";
 import ModalBook from "../Components/ModalBook";
 import { useState } from "react";
-import { useEnableStore, useFilterGenreStore, useFilterStore, useReadingBookStore } from "../store/zustand";
+import { useFilterGenreStore, useFilterStore, useReadingBookStore } from "../store/zustand";
 
 function AllBooks() {
 
   const author = useFilterStore((state) => state.author);
   const genre = useFilterGenreStore((state) => state.genre);
   const addBook = useReadingBookStore((state) => state.addBook);
-  const { enable, setEnable } = useEnableStore();
   const {
     isLoading,
     data: allBooks,
@@ -50,7 +49,7 @@ function AllBooks() {
                 >
                   📖
                 </Button>
-                <Button key={bookReduce.title} onClick={() => addBook(bookReduce)}>
+                <Button key={bookReduce.title} onClick={() => {addBook(bookReduce)}} >
                   Add  
                 </Button>
                   <img src={bookReduce.cover} className="image-container" />

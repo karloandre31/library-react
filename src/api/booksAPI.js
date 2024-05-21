@@ -12,3 +12,5 @@ export const getBooks = async (author, genre) => {
   if (genre) return dataRes.filter((e) => e.book.genre.includes(genre));
   return dataRes;
 };
+
+
