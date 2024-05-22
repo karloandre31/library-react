@@ -40,7 +40,7 @@ function AllBooks() {
         {allBooks.map((book) => {
           const bookReduce = book.book;
           return (
-            <Col xl={2} key={bookReduce.title}>
+            <Col xl={2} xs={'auto'} key={bookReduce.title}>
               <div className="rounded-md ficha-container">
                 <Button
                   variant="outline-success"

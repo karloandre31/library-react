@@ -9,7 +9,7 @@ function App() {
     <div>
       <Container>
         <Row>
-          <Col xs={9}>
+          <Col xl={9} xs={"auto"} md={7}>
             <BtnDayOrNigth />
             <div className="mb-4">
               <SearchBook />

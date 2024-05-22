@@ -12,7 +12,7 @@ function ReadingList() {
           {books.map((book) => {
             {
               return (
-                <Col xl={4} key={book.title}>
+                <Col xl={4} xs={'auto'} key={book.title}>
                   <div className="rounded-md ficha-container">
                     <div className="right-full">
                       <CloseButton
